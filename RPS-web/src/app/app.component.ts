@@ -1,43 +1,42 @@
 import { Component } from '@angular/core'
-import { RPSService } from './RPS/RPS.service'
 import { RPSResult } from './RPS/RPSresult'
+import { PostService } from './RPS/RPS.post.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [RPSService]
+  providers: [PostService]
 })
 export class AppComponent {
   title = 'Rock-Paper-Scissors! game';
   
   imagePath : String = "";
-  
-  rpsResult : RPSResult;
   endOfGame : String = "";
-
   computerImagePath : String = "";
 
-  constructor(rpsService : RPSService) {
-    this.rpsResult = rpsService.retrieveResult();
-    this.endOfGame = this.rpsResult.getEndGame().toLowerCase();
+  constructor(private postService : PostService) {
   }
 
   rockAction() {
-     this.imagePath = "./assets/img/rock.png";
-     this.chooseComputerImage(this.rpsResult.getComputerOption())
+     this.action("rock");
   }
 
   paperAction() {
-     this.imagePath = "./assets/img/paper.png";
-     this.chooseComputerImage(this.rpsResult.getComputerOption())
+     this.action("paper");
   }
 
   scissorsAction() {
-     this.imagePath = "./assets/img/scissors.png";
-     this.chooseComputerImage(this.rpsResult.getComputerOption())
+     this.action("scissors");
   }
 
+  action(option : String) {
+     this.imagePath = "./assets/img/" + option + ".png"
+     this.postService.createPost(option.toUpperCase()).subscribe(result => {
+       this.chooseComputerImage(result.computerOption);
+       this.endOfGame = result.endGame;
+     });
+  }
 
   chooseComputerImage(computerOption : String) {
     if(computerOption == "ROCK") {
@@ -51,5 +50,4 @@ export class AppComponent {
     } 
   }
 
-  
 }

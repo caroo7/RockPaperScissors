@@ -1,0 +1,17 @@
+.part {
+    float: left;
+    width: 200px;
+}
+
+.nameLabel {
+    float: left;
+    width: 200px;
+}
+
+#symbols {
+    margin-top: 50px;
+}
+
+.symbol {
+    width: 150px;
+}

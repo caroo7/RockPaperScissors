@@ -1,10 +1,16 @@
 package app.controller;
 
-public class Option {
+import java.io.Serializable;
+
+public class Option implements Serializable {
 
     private String option;
 
     public Option() {};
+
+    public Option(String option) {
+        this.option = option;
+    }
 
     public String getOption() {
         return option;

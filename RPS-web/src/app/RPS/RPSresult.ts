@@ -1,6 +1,6 @@
 export class RPSResult {
 
-    constructor(private computerOption : String, private endGame : String) {
+    constructor(public computerOption : String, public endGame : String) {
     }
 
     getComputerOption() {
