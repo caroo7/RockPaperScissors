@@ -1,5 +1,4 @@
 import { Component } from '@angular/core'
-import { RPSResult } from './RPS/RPSresult'
 import { PostService } from './RPS/RPS.post.service'
 
 @Component({
@@ -34,7 +33,7 @@ export class AppComponent {
      this.imagePath = "./assets/img/" + option + ".png"
      this.postService.createPost(option.toUpperCase()).subscribe(result => {
        this.chooseComputerImage(result.computerOption);
-       this.endOfGame = result.endGame;
+       this.creteAppropriateResultMessage(result.endGame);
      });
   }
 
@@ -47,6 +46,18 @@ export class AppComponent {
     }
     if(computerOption == "SCISSORS") {
         this.computerImagePath = "./assets/img/scissors.png";
+    } 
+  }
+
+  creteAppropriateResultMessage(endOfGame : String) {
+    if(endOfGame == "WIN") {
+        this.endOfGame = "You win :)"
+    }
+    if(endOfGame == "LOSE") {
+        this.endOfGame = "You lose :("
+    }
+    if(endOfGame == "DRAW") {
+        this.endOfGame = "We have a draw."
     } 
   }
 

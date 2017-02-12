@@ -1,11 +1,12 @@
-<h1>
-  <button (click)="rockAction()">Rock</button>
-  <button (click)="paperAction()">Paper</button>
-  <button (click)="scissorsAction()">Scissors</button>
-</h1>
-
-
 <body>
+
+<div id="main-container">
+
+  <div id = "action_buttons">
+    <button class="actionButton" (click)="rockAction()">Rock</button>
+    <button class="actionButton" (click)="paperAction()">Paper</button>
+    <button class="actionButton" (click)="scissorsAction()">Scissors</button>  
+  </div>
 
   <div id="names">
     <label class="nameLabel">You</label>
@@ -16,5 +17,11 @@
     <img class="symbol" src="{{imagePath}}"/>
     <img class="symbol" src="{{computerImagePath}}"/>
   </div>
+
+  <div id="result">
+    {{endOfGame}}
+  </div>
+
+</div>
 
 </body>
