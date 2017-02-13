@@ -1,0 +1,11 @@
+REQUIREMENTS:
+- download and install Node.js: https://nodejs.org
+- install typescript from command line: npm install -g typescript
+- install typings: npm install -g typings
+- install angular-cli: npm install -g angular-cli
+
+HOW TO RUN:
+- open gradle project using intellij and refresh project using 'refresh all gradle projects' button to download all dependencies
+- run main method from app.Application class to start server side of application
+- in command line go to RPS-web dir and run: 'ng serve' to start front-end part
+- in any browser go to localhost:4200
