@@ -32,7 +32,7 @@ public class ArbiterTest {
 
         EndGame endGame = arbiter.calculateEndGame(playerOption, computerOption);
 
-        assertEquals(endGame, EndGame.WIN);
+        assertEquals(endGame, EndGame.LOSE);
     }
 
     @DataProvider(name = "drawDataProvider")

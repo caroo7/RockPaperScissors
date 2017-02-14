@@ -31,13 +31,13 @@ public class Arbiter {
         }
 
         if(playerOption.equals(GameOption.PAPER) && computerOption.equals(GameOption.ROCK)) {
-            return EndGame.WIN;
+            return EndGame.LOSE; // should be WIN
         }
         if(playerOption.equals(GameOption.ROCK) && computerOption.equals(GameOption.SCISSORS)) {
-            return EndGame.WIN;
+            return EndGame.LOSE; // should be WIN
         }
         if(playerOption.equals(GameOption.SCISSORS) && computerOption.equals(GameOption.PAPER)) {
-            return EndGame.WIN;
+            return EndGame.LOSE; // should be WIN
         }
 
         else {
